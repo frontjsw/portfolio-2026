@@ -1,0 +1,218 @@
+/* ========================================================================= */
+/* Home Style */
+/* ========================================================================= */
+.home {
+  .section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 120px;
+    scroll-margin-top: 92px;
+    .section-title {
+      width: 100%;
+      margin-bottom: 48px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #eee;
+      font-size: 16px;
+      font-weight: 600;
+      color: #999;
+    }
+    &:not(.info-section) {
+      border-top: 1px solid #eee;
+    }
+    &:nth-child(even) {
+      background-color: #fafafa;
+    }
+  }
+
+  .info-section {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 100px 120px;
+    /* ----- info-section 좌측 ----- */
+    .info-main {
+      display: flex;
+      flex-direction: column;
+      gap: 20px 0;
+      .info-label {
+        display: block;
+        font-size: 16px;
+        font-weight: 600;
+        color: #999;
+      }
+      .info-description {
+        font-size: 26px;
+        font-weight: 500;
+        color: #111;
+      }
+      .info-contact {
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 0 4px;
+        width: fit-content;
+        font-size: 16px;
+        font-weight: 600;
+        color: #111;
+        transition: gap 0.4s ease;
+        &::after {
+          content: "";
+          position: absolute;
+          left: 0;
+          bottom: -2px;
+          width: 0;
+          height: 1px;
+          background-color: #111;
+          transition: 0.4s;
+        }
+        &:hover {
+          gap: 0 8px;
+          &::after {
+            width: 100%;
+          }
+        }
+      }
+    }
+    /* ----- info-section 우측 ----- */
+    .info-side {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 40px 0;
+    }
+    .info-stats {
+      display: flex;
+      .info-stat {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 6px 0;
+        padding: 0 32px;
+        border-left: 1px solid #eee;
+        &:first-child {
+          border-left: none;
+        }
+        &:last-child {
+          padding-right: 0;
+        }
+        .num {
+          font-size: 36px;
+          font-weight: 600;
+          color: #111;
+        }
+        .text {
+          font-size: 14px;
+          color: #999;
+        }
+      }
+    }
+    .info-career {
+      text-align: right;
+      .info-career-title {
+        margin-bottom: 8px;
+        font-size: 12px;
+        font-weight: 600;
+        color: #ccc;
+      }
+      .info-career-list {
+        display: flex;
+        flex-direction: column;
+        gap: 12px 0;
+        .info-career-item {
+          display: flex;
+          flex-direction: column;
+          gap: 4px 0;
+          .info-career-company {
+            font-size: 20px;
+            font-weight: 700;
+            color: #111;
+          }
+          .info-career-period {
+            font-size: 14px;
+            color: #999;
+          }
+        }
+      }
+    }
+    .info-stack-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 8px;
+      max-width: 320px;
+      .info-stack-item {
+        padding: 6px 12px;
+        border: 1px solid #ddd;
+        border-radius: 999px;
+        font-size: 14px;
+        font-weight: 500;
+        color: #555;
+      }
+    }
+  }
+}
+
+/* ========================================================================= */
+/* Home Media Quary */
+/* ========================================================================= */
+
+.home {
+  /* ----- section ----- */
+  .section {
+    @media (max-width: 1024px) {
+      padding: 80px 48px;
+    }
+
+    @media (max-width: 640px) {
+      padding: 56px 24px;
+      scroll-margin-top: 64px;
+      .section-title {
+        margin-bottom: 32px;
+      }
+    }
+  }
+
+  /* ----- info-section ----- */
+  .info-section {
+    @media (max-width: 1024px) {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 48px 0;
+      padding: 80px 48px;
+      .info-side {
+        align-items: flex-start;
+        width: 100%;
+        .info-stats {
+          .info-stat {
+            align-items: flex-start;
+            &:first-child {
+              padding-left: 0;
+            }
+          }
+        }
+        .info-career {
+          text-align: left;
+        }
+        .info-stack-list {
+          justify-content: flex-start;
+          max-width: 100%;
+        }
+      }
+    }
+
+    @media (max-width: 640px) {
+      gap: 32px 0;
+      padding: 56px 24px;
+      .info-main {
+        .info-description {
+          font-size: 20px;
+        }
+        .info-stats .info-stat .num {
+          font-size: 28px;
+        }
+      }
+    }
+  }
+}
